@@ -17,6 +17,8 @@ struct ProfileView: View {
     @State var weight : String = ""
     @State var activity : String = ""
     
+    @State var showAlert = false
+    
     
     var body: some View {
         Form {
@@ -47,7 +49,7 @@ struct ProfileView: View {
                     }
                     .padding(.vertical)
                 }
-                Text("Size:")
+                Text("Size: (cm)")
                     .foregroundColor(.cyan)
                 TextField("Enter your Size", text: $size)
                     .padding(.horizontal)
@@ -57,9 +59,9 @@ struct ProfileView: View {
                 //.background(Color(.systemCyan))
                     .cornerRadius(20)
                 
-                Text("Weight:")
+                Text("Weight: (kg)")
                     .foregroundColor(.cyan)
-                TextField("Enter your weight (kg)", text: $weight)
+                TextField("Enter your weight", text: $weight)
                     .padding(.horizontal)
                     .frame(height: 55)
                     .frame(maxWidth: .infinity)
@@ -67,7 +69,7 @@ struct ProfileView: View {
                 //.background(Color(.systemCyan))
                     .cornerRadius(20)
                 
-                Text("Activity Time:")
+                Text("Activity Time: (h/week)")
                     .foregroundColor(.cyan)
                 TextField("Enter your Acitivty Time", text: $activity)
                     .padding(.horizontal)
@@ -80,10 +82,21 @@ struct ProfileView: View {
             .padding(.horizontal)
             Button (action: {
                 submitForm()
+                self.showAlert = true
             }, label: {
                 Text("Save")
             })
             .disabled(size.isEmpty || weight.isEmpty || activity.isEmpty)
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Form sent"), message: Text("Form has been sent successfully"))
+            }
+        }
+        .onAppear() {
+            sex = profile.profile.sex
+            age = profile.profile.age
+            weight = profile.profile.weight
+            size = profile.profile.size
+            activity = profile.profile.activity
         }
     }
     

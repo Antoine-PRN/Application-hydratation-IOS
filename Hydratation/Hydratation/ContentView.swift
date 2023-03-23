@@ -20,13 +20,13 @@ struct ContentView: View {
         
         NavigationView {
             VStack {
-                CircularGauge(value: Double(qte), maxValue: profile.getMaxValue())
+                CircularGauge(value: Double(qte), maxValue: Double(profile.getMaxValue()))
                     .frame(maxWidth: 250)
                     .padding(20)
                 Spacer()
                 Group {
-                    Text("Objectif personnel:")
-                    HorizontalGauge(value: Double(qte), maxValue: 1500)
+                    Text("Objectif personnel: \(String(profile.getMaxValue()))")
+                    HorizontalGauge(value: Double(qte), maxValue: Double(profile.getMaxValue()))
                 }
                 Spacer()
                 Group {
@@ -67,15 +67,6 @@ struct ContentView: View {
             .navigationTitle("Hydratation")
             .toolbar {
                 ToolbarItemGroup (placement: .bottomBar) {
-
-                        Spacer()
-                        NavigationLink(destination: EmptyView()) {
-                            VStack {
-                                Image(systemName: "house")
-                                    .foregroundColor(.black)
-                                Text("Home")
-                            }
-                        }
                         Spacer()
                         NavigationLink(destination: EmptyView()) {
                             VStack {

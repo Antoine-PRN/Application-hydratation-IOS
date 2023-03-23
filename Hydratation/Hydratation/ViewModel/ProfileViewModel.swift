@@ -19,10 +19,11 @@ class ProfileViewModel: ObservableObject {
         profile = Profile(sex: sex, age: age, size: size, weight: weight, activity: activity)
     }
     
-    func getMaxValue() -> Double {
-        if profile.sex Men {
-            return 2000// 3.7 //+ (0.035 * Double(profile.weight) ?? 0.0) + (0.045 * Double(profile.size) ?? 0.0) - (0.033 * profile.age) + (750 * Double(profile.activity) ?? 0.0)
+    func getMaxValue() -> Int {
+        let activity_qte = (Double(profile.activity) ?? 0.0) * 0.25
+        if profile.sex == .Men {
+            return Int((Double(profile.weight) ?? 0.0) / 30 * 1.7 + activity_qte) * 1000
         }
-        return 1500// 2.7 //+ (0.03 * Double(profile.weight) ?? 0.0) + (0.04 * Double(profile.size) ?? 0.0) - (0.28 * profile.age) + (750 * Double(profile.activity) ?? 0.0)
+        return Int((Double(profile.weight) ?? 0.0) / 30 * 1.5 + activity_qte) * 1000
     }
 }
