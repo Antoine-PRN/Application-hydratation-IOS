@@ -17,7 +17,7 @@
 		1CE70FA329BF220B00226904 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE70FA229BF220B00226904 /* ProfileModel.swift */; };
 		1CE70FA529BF2A0300226904 /* CircularGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE70FA429BF2A0300226904 /* CircularGauge.swift */; };
 		1CE70FA729BF314500226904 /* HorizontalGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE70FA629BF314500226904 /* HorizontalGauge.swift */; };
-		DB7BD7F029CC577000B6FC0D /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BD7EF29CC577000B6FC0D /* StatsView.swift */; };
+		DB7BD7F829CC5CB000B6FC0D /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BD7F729CC5CB000B6FC0D /* StatsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 		1CE70FA229BF220B00226904 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		1CE70FA429BF2A0300226904 /* CircularGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularGauge.swift; sourceTree = "<group>"; };
 		1CE70FA629BF314500226904 /* HorizontalGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalGauge.swift; sourceTree = "<group>"; };
-		DB7BD7EF29CC577000B6FC0D /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		DB7BD7F729CC5CB000B6FC0D /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,10 +68,10 @@
 			children = (
 				1C3954C629B8B15D00E630C4 /* HydratationApp.swift */,
 				1C3954C829B8B15D00E630C4 /* ContentView.swift */,
+				DB7BD7F729CC5CB000B6FC0D /* StatsView.swift */,
 				1C3954D429B8BB5D00E630C4 /* ProfileView.swift */,
 				1CE70FA429BF2A0300226904 /* CircularGauge.swift */,
 				1CE70FA629BF314500226904 /* HorizontalGauge.swift */,
-				DB7BD7EF29CC577000B6FC0D /* StatsView.swift */,
 				1CDBCA7D29C85DB300512617 /* Model */,
 				1CDBCA7C29C85DA600512617 /* ViewModel */,
 				1C3954CA29B8B15E00E630C4 /* Assets.xcassets */,
@@ -182,7 +182,7 @@
 				1C3954C729B8B15D00E630C4 /* HydratationApp.swift in Sources */,
 				1CDBCA7B29C85DA100512617 /* ProfileViewModel.swift in Sources */,
 				1CE70FA329BF220B00226904 /* ProfileModel.swift in Sources */,
-				DB7BD7F029CC577000B6FC0D /* StatsView.swift in Sources */,
+				DB7BD7F829CC5CB000B6FC0D /* StatsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

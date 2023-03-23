@@ -10,13 +10,18 @@ import SwiftUI
 struct ContentView: View {
     @State var qte: Int = 0
     @EnvironmentObject var profile : ProfileViewModel
-
     
     var body: some View {
         let qte1 = 50
         let qte2 = 100
         let qte3 = 330
         let qte4 = 500
+        
+        var lastValuePercent = Int(qte * 100 / profile.getMaxValue())
+        var lastValue = lastValuePercent < 100 ? lastValuePercent : 100
+        
+        let dataPoints = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+        let values = [95, 80, 65, 85, 78, 100, lastValue]
         
         NavigationView {
             VStack {
@@ -68,7 +73,7 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItemGroup (placement: .bottomBar) {
                         Spacer()
-                        NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: StatsView(dataPoints: dataPoints, values: values)) {
                             VStack {
                                 Image(systemName: "chart.bar")
                                     .foregroundColor(.black)
