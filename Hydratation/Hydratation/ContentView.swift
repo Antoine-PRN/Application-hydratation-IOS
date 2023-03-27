@@ -30,8 +30,8 @@ struct ContentView: View {
                     .padding(20)
                 Spacer()
                 Group {
-                    Text("Objectif personnel: \(String(profile.getMaxValue()))")
-                    HorizontalGauge(value: Double(qte), maxValue: Double(profile.getMaxValue()))
+                    Text("Personnal Objective: \(profile.profile.objective)")
+                    HorizontalGauge(value: Double(qte), maxValue: Double(profile.profile.objective) ?? 0.0)
                 }
                 Spacer()
                 Group {

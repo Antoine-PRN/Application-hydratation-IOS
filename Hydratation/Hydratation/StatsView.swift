@@ -13,7 +13,7 @@ struct StatsView: View {
     let title = "Statistics"
     
     var body: some View {
-        var message = values.last == 100 ? "Conratulations !" : "You can do it !"
+        let message = values.last == 100 ? "Congratulations !" : "You can do it !"
 
         VStack {
             Text(title)

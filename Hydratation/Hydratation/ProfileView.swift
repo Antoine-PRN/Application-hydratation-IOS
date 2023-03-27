@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    
+
     @EnvironmentObject var profile : ProfileViewModel
     
     @State var sex : Sex = .Men
@@ -16,9 +16,9 @@ struct ProfileView: View {
     @State var size : String = ""
     @State var weight : String = ""
     @State var activity : String = ""
+    @State var objective = ""
     
     @State var showAlert = false
-    
     
     var body: some View {
         Form {
@@ -43,40 +43,52 @@ struct ProfileView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     
-                    Stepper(value: $age, in: 0...120) {
+                    Stepper(value: $age, in: 10...120) {
                         Text("Age: \(age)")
                             .foregroundColor(.cyan)
                     }
                     .padding(.vertical)
                 }
-                Text("Size: (cm)")
-                    .foregroundColor(.cyan)
-                TextField("Enter your Size", text: $size)
-                    .padding(.horizontal)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color(.systemGray4))
-                //.background(Color(.systemCyan))
-                    .cornerRadius(20)
-                
-                Text("Weight: (kg)")
-                    .foregroundColor(.cyan)
-                TextField("Enter your weight", text: $weight)
-                    .padding(.horizontal)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color(.systemGray4))
-                //.background(Color(.systemCyan))
-                    .cornerRadius(20)
-                
+                Group {
+                    Text("Size: (cm)")
+                        .foregroundColor(.cyan)
+                    TextField("Enter your Size", text: $size)
+                        .padding(.horizontal)
+                        .frame(height: 45)
+                        .frame(maxWidth: .infinity)
+                        .background(Color(.systemGray4))
+                        .cornerRadius(20)
+                        .keyboardType(.numberPad)
+                        
+                    Text("Weight: (kg)")
+                        .foregroundColor(.cyan)
+                    TextField("Enter your weight", text: $weight)
+                        .padding(.horizontal)
+                        .frame(height: 45)
+                        .frame(maxWidth: .infinity)
+                        .background(Color(.systemGray4))
+                        .cornerRadius(20)
+                        .keyboardType(.numberPad)
+                        
+                }
                 Text("Activity Time: (h/week)")
                     .foregroundColor(.cyan)
                 TextField("Enter your Acitivty Time", text: $activity)
                     .padding(.horizontal)
-                    .frame(height: 55)
+                    .frame(height: 45)
                     .frame(maxWidth: .infinity)
                     .background(Color(.systemGray4))
                     .cornerRadius(20)
+                
+                Text("What is your objective ? (ml/day)")
+                    .foregroundColor(.cyan)
+                TextField("Enter your objective here", text: $objective)
+                    .padding(.horizontal)
+                    .frame(height: 45)
+                    .frame(maxWidth: .infinity)
+                    .background(Color(.systemGray4))
+                    .cornerRadius(20)
+                    .keyboardType(.numberPad)
                 Spacer()
             }
             .padding(.horizontal)
@@ -97,11 +109,14 @@ struct ProfileView: View {
             weight = profile.profile.weight
             size = profile.profile.size
             activity = profile.profile.activity
+            objective = profile.profile.objective
         }
+        .padding(.top, -32)
+        Spacer()
     }
     
     func submitForm () {
-        profile.saveProfile(sex: sex, age: age, size: size, weight: weight, activity: activity)
+        profile.saveProfile(sex: sex, age: age, size: size, weight: weight, activity: activity, objective: objective)
     }
 }
 

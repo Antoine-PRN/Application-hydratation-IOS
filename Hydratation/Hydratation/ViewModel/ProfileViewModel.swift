@@ -12,11 +12,11 @@ class ProfileViewModel: ObservableObject {
     @Published var profile : Profile
     
     init () {
-        profile = Profile(sex: .Men, age: 18, size: "180", weight: "65", activity: "1")
+        profile = Profile(sex: .Men, age: 18, size: "180", weight: "65", activity: "1", objective: "1500")
     }
     
-    func saveProfile(sex: Sex, age: Int, size: String, weight: String, activity: String) {
-        profile = Profile(sex: sex, age: age, size: size, weight: weight, activity: activity)
+    func saveProfile(sex: Sex, age: Int, size: String, weight: String, activity: String, objective: String) {
+        profile = Profile(sex: sex, age: age, size: size, weight: weight, activity: activity, objective: objective)
     }
     
     func getMaxValue() -> Int {

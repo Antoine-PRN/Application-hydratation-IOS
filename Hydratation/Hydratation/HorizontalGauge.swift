@@ -17,7 +17,10 @@ struct HorizontalGauge: View {
         let percent = value * 100 / maxValue
         let formattedPercent = String(format: "%.0f%%", percent)
         let formattedValue = String(format: "%.0f mL", value)
-        return HStack {
+        let message : String = percent >= 100 ? "Congratulations !" : " "
+        
+        return VStack {
+            HStack {
                 ZStack (alignment: .leading) {
                     Rectangle()
                         .frame (width: 300, height: lineWidth)
@@ -37,7 +40,15 @@ struct HorizontalGauge: View {
                 }
                 Text(formattedPercent)
             }
+            HStack {
+                Text(message)
+                    .foregroundColor(.cyan)
+                Image(systemName: percent >= 100 ? "checkmark.circle" : " ")
+                    .foregroundColor(.green)
+                    .frame(width: 40, height: 40)
+            }
         }
+    }
 }
 
 struct HorizontalGauge_Previews: PreviewProvider {
