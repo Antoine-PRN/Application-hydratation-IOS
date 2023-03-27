@@ -20,4 +20,5 @@ struct Profile {
     var weight: String
     var activity: String
     var objective : String
+    var firstname : String 
 }

@@ -26,6 +26,13 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 VStack {
+                    HStack {
+                        Text(profile.profile.firstname == "" ? "Welcome !" : "Hello, \(profile.profile.firstname) !")
+                            .foregroundColor(.cyan)
+                            .font(.system(size: 20))
+                            .padding(.horizontal)
+                        Spacer()
+                    }
                     Button (action : {
                         qte = 0
                     }) {

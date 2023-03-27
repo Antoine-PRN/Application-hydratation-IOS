@@ -16,7 +16,8 @@ struct ProfileView: View {
     @State var size : String = ""
     @State var weight : String = ""
     @State var activity : String = ""
-    @State var objective = ""
+    @State var objective : String = ""
+    @State var firstname : String = ""
     
     @State var showAlert = false
     
@@ -29,9 +30,16 @@ struct ProfileView: View {
                             .font(.system(size: 100))
                     }
                     .frame(maxWidth: .infinity, alignment: .center)
-                    Text("Profile")
-                        .font(.system(size: 33))
-                        .frame(maxWidth: .infinity, alignment: .center)
+                    HStack (alignment: .center) {
+                        TextField("FirstName", text: $firstname)
+                            .padding(.horizontal)
+                            .frame(height: 25)
+                            .frame(maxWidth: 150)
+                            .background(Color(.systemGray4))
+                            .cornerRadius(20)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    
                 }
                 Group {
                     Text("Sex:")
@@ -54,7 +62,7 @@ struct ProfileView: View {
                         .foregroundColor(.cyan)
                     TextField("Enter your Size", text: $size)
                         .padding(.horizontal)
-                        .frame(height: 45)
+                        .frame(height: 35)
                         .frame(maxWidth: .infinity)
                         .background(Color(.systemGray4))
                         .cornerRadius(20)
@@ -64,7 +72,7 @@ struct ProfileView: View {
                         .foregroundColor(.cyan)
                     TextField("Enter your weight", text: $weight)
                         .padding(.horizontal)
-                        .frame(height: 45)
+                        .frame(height: 35)
                         .frame(maxWidth: .infinity)
                         .background(Color(.systemGray4))
                         .cornerRadius(20)
@@ -75,7 +83,7 @@ struct ProfileView: View {
                     .foregroundColor(.cyan)
                 TextField("Enter your Acitivty Time", text: $activity)
                     .padding(.horizontal)
-                    .frame(height: 45)
+                    .frame(height: 35)
                     .frame(maxWidth: .infinity)
                     .background(Color(.systemGray4))
                     .cornerRadius(20)
@@ -84,7 +92,7 @@ struct ProfileView: View {
                     .foregroundColor(.cyan)
                 TextField("Enter your objective here", text: $objective)
                     .padding(.horizontal)
-                    .frame(height: 45)
+                    .frame(height: 35)
                     .frame(maxWidth: .infinity)
                     .background(Color(.systemGray4))
                     .cornerRadius(20)
@@ -101,6 +109,7 @@ struct ProfileView: View {
             .disabled(size.isEmpty || weight.isEmpty || activity.isEmpty)
             .alert(isPresented: $showAlert) {
                 Alert(title: Text("Informations Saved"), message: Text("Your informations have been saved successfully"))
+                
             }
         }
         .onAppear() {
@@ -110,13 +119,14 @@ struct ProfileView: View {
             size = profile.profile.size
             activity = profile.profile.activity
             objective = profile.profile.objective
+            firstname = profile.profile.firstname
         }
         .padding(.top, -32)
         Spacer()
     }
     
     func submitForm () {
-        profile.saveProfile(sex: sex, age: age, size: size, weight: weight, activity: activity, objective: objective)
+        profile.saveProfile(sex: sex, age: age, size: size, weight: weight, activity: activity, objective: objective, firstname: firstname)
     }
 }
 
