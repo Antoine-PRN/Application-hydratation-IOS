@@ -25,6 +25,19 @@ struct ContentView: View {
         
         NavigationView {
             VStack {
+                VStack {
+                    Button (action : {
+                        qte = 0
+                    }) {
+                        Image(systemName: "arrow.clockwise.circle")
+                            .foregroundColor(.cyan)
+                            .frame(width: 30, height: 30)
+                    }
+                    Text("Refresh")
+                        .font(.system(size: 12))
+                        .foregroundColor(.cyan)
+                        .padding(.top, -10)
+                }
                 CircularGauge(value: Double(qte), maxValue: Double(profile.getMaxValue()))
                     .frame(maxWidth: 250)
                     .padding(20)

@@ -43,7 +43,7 @@ struct ProfileView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     
-                    Stepper(value: $age, in: 10...120) {
+                    Stepper(value: $age, in: 0...120) {
                         Text("Age: \(age)")
                             .foregroundColor(.cyan)
                     }
@@ -100,7 +100,7 @@ struct ProfileView: View {
             })
             .disabled(size.isEmpty || weight.isEmpty || activity.isEmpty)
             .alert(isPresented: $showAlert) {
-                Alert(title: Text("Form sent"), message: Text("Form has been sent successfully"))
+                Alert(title: Text("Informations Saved"), message: Text("Your informations have been saved successfully"))
             }
         }
         .onAppear() {

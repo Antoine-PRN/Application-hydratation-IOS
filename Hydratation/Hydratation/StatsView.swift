@@ -29,7 +29,11 @@ struct StatsView: View {
                             Capsule()
                                 .frame(width: 40, height: CGFloat(values[index]) * 3)
                                 .foregroundColor(Color.cyan)
-                            
+                            Text(String(values[index]))
+                                .font(.caption)
+                                .padding(.top, -32)
+                                .foregroundColor(.white)
+                                .fontWeight(.bold)
                         }
                         Text(dataPoints[index])
                             .font(.caption)
